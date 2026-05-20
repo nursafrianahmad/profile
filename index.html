@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nur Safrian Ahmad | Business Development Portfolio</title>
+    
+    <!-- Google Fonts: Space Grotesk (Display) & Plus Jakarta Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           RESET & CORE VARIABLES
+           ========================================================================== */
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F4F4F6;
+            --accent-color: #1E3A8A;
+            --accent-light: rgba(30, 58, 138, 0.1);
+            --text-dark: #0F172A;
+            --text-muted: #475569;
+            --border-color: #E2E8F0;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        /* Selection Tint */
+        ::selection {
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+        }
+
+        body {
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        section {
+            padding: 100px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+
+        /* Global Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-family: var(--font-body);
+            cursor: pointer;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           1. NAVBAR
+           ========================================================================== */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+        }
+
+        .header-nav.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 2px;
+            margin: 5px auto;
+            transition: var(--transition-smooth);
+            background-color: var(--accent-color);
+        }
+
+        /* ==========================================================================
+           2. HERO SECTION
+           ========================================================================== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 140px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 48px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            line-height: 1.15;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+        }
+
+        .hero-headline span {
+            color: var(--accent-color);
+            position: relative;
+        }
+
+        .hero-subheadline {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 640px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+        }
+
+        .hero-card-pattern {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+            position: relative;
+        }
+
+        .hero-card-pattern::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            width: 100%;
+            height: 100%;
+            border: 1px dashed var(--accent-color);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        @keyframes heroFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ==========================================================================
+           3. TENTANG SAYA
+           ========================================================================== */
+        #tentang {
+            background-color: var(--bg-secondary);
+            border-radius: 16px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 64px;
+            align-items: flex-start;
+        }
+
+        .profile-wrapper {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 8px;
+            filter: grayscale(100%);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--border-color);
+            background-color: #eee;
+        }
+
+        .profile-wrapper:hover .profile-img {
+            filter: grayscale(0%);
+        }
+
+        .about-bio {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 24px 0;
+        }
+
+        .stat-item .stat-num {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        .stat-item .stat-lbl {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        .advantages-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .advantage-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 20px 24px;
+            border-radius: 6px;
+            transition: var(--transition-smooth);
+        }
+
+        .advantage-card:hover {
+            border-color: var(--accent-color);
+            transform: translateX(4px);
+        }
+
+        .advantage-card h4 {
+            font-family: var(--font-display);
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           4. SKILLS
+           ========================================================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .skill-card {
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            background: var(--bg-primary);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+            box-shadow: 0 12px 30px rgba(30, 58, 138, 0.04);
+        }
+
+        .skill-icon {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .skill-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-secondary);
+            color: var(--text-dark);
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Soft Skills Layout modification */
+        .skill-card.soft-skills {
+            grid-column: span 3;
+            background-color: var(--bg-secondary);
+        }
+
+        .skill-card.soft-skills .skill-tags {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .skill-card.soft-skills .skill-tag {
+            background-color: var(--bg-primary);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .skills-cta {
+            text-align: center;
+            margin-top: 48px;
+            padding: 24px;
+            background-color: var(--accent-light);
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .skills-cta p {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        /* ==========================================================================
+           5 & 6. GRID LAYOUT UNTUK ORGANISASI & PENGALAMAN
+           ========================================================================== */
+        .filter-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: var(--font-body);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+            border-color: var(--accent-color);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .data-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--bg-primary);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .data-card.hide {
+            display: none;
+        }
+
+        .data-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.03);
+            border-color: #CBD5E1;
+        }
+
+        .card-thumb-wrapper {
+            position: relative;
+            overflow: hidden;
+            background-color: #F1F5F9;
+            padding-top: 66.67%; /* 3:2 Aspect Ratio */
+        }
+
+        .card-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: var(--transition-smooth);
+        }
+
+        .data-card:hover .card-thumb {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .badge {
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            padding: 2px 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-action {
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        .btn-text {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-body);
+        }
+
+        .btn-text:hover {
+            color: var(--text-dark);
+        }
+
+        /* Modal Detail */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+            padding: 20px;
+        }
+
+        .modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: var(--bg-primary);
+            max-width: 640px;
+            width: 100%;
+            border-radius: 8px;
+            padding: 40px;
+            position: relative;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal.open .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-points {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+
+        .modal-points li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .modal-points li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* ==========================================================================
+           7. REKOMENDASI
+           ========================================================================== */
+        #rekomendasi {
+            background-color: var(--bg-secondary);
+            border-radius: 16px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rec-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .rec-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .rec-stars {
+            color: #F59E0B;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .rec-quote {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .rec-profile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        .rec-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+            object-fit: cover;
+        }
+
+        .rec-info h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .rec-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           8. KONTAK
+           ========================================================================== */
+        .contact-box {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-icon-frame {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            background-color: var(--accent-light);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-text h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .contact-text p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 2px;
+        }
+
+        .contact-action-zone {
+            text-align: right;
+        }
+
+        .contact-action-zone p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: #0F172A;
+            color: #94A3B8;
+            padding: 64px 24px 32px;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 48px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 48px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand h4 {
+            font-family: var(--font-display);
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            max-width: 400px;
+        }
+
+        .footer-links h5, .footer-social h5 {
+            color: var(--bg-primary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--bg-primary);
+            transform: translateX(4px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            background-color: #1E293B;
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-visual {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .profile-wrapper {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .skill-card.soft-skills {
+                grid-column: span 2;
+            }
+            .skill-card.soft-skills .skill-tags {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .data-grid, .rec-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-box {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-action-zone {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 24px;
+            }
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 73px;
+                flex-direction: column;
+                background-color: var(--bg-primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                padding: 40px 0;
+                gap: 24px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .data-grid, .rec-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .skill-card.soft-skills {
+                grid-column: span 1;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       1. NAVBAR
+       ========================================================================== -->
+    <nav class="header-nav" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Nur Safrian Ahmad</a>
+            <button class="hamburger" aria-label="Menu" id="hamburger-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu-list">
+                <li><a href="#tentang" class="nav-link">Tentang</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#organisasi" class="nav-link">Organisasi</a></li>
+                <li><a href="#pengalaman" class="nav-link">Pengalaman</a></li>
+                <li><a href="#kontak" class="nav-link">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==========================================================================
+       2. HERO SECTION
+       ========================================================================== -->
+    <section id="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1 class="hero-headline">Membangun Pertumbuhan Bisnis Lewat <span>Data & Kemitraan</span></h1>
+                <p class="hero-subheadline">
+                    Marketing & Business Development Enthusiast yang berfokus pada optimasi B2B Sales, Digital Marketing, dan Event Activation berbasis pencapaian KPI yang terukur.
+                </p>
+                <div class="hero-cta">
+                    <a href="#skills" class="btn btn-primary">Lihat Skills</a>
+                    <a href="#kontak" class="btn btn-secondary">Hubungi Saya</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-pattern">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    <h3 style="font-family: var(--font-display); margin-top: 16px; font-size: 1.5rem;">120+ Outreach / Bulan</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Konsistensi eksekusi pipelines prospek baru secara terstruktur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       3. TENTANG SAYA
+       ========================================================================== -->
+    <section id="tentang" class="reveal">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-grid">
+            <div class="profile-wrapper">
+                <!-- Sesuai instruksi: Menggunakan gambar berdimensi proporsional -->
+                <img src="https://placehold.co/400x400" alt="Nur Safrian Ahmad" class="profile-img" loading="lazy">
+            </div>
+            <div>
+                <p class="about-bio">
+                    Lulusan Manajemen dengan pengalaman solid di bidang sales support, administrasi, dan marketing. Terbukti mampu mengelola 300+ data leads/CRM serta 120+ outreach bisnis per bulan untuk mendukung pertumbuhan pipeline penjualan B2B. Memiliki rekam jejak kepemimpinan kuat dalam koordinasi tim besar dan aktivasi event nasional.
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-num">300+</div>
+                        <div class="stat-lbl">Data Leads Dikelola</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">120+</div>
+                        <div class="stat-lbl">Outreach / Bulan</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">35+</div>
+                        <div class="stat-lbl">Anggota Dipimpin</div>
+                    </div>
+                </div>
+
+                <div class="advantages-container">
+                    <div class="advantage-card">
+                        <h4>B2B Outreach & Lead Generation</h4>
+                        <p>Menjalankan 120+ outreach prospek per bulan melalui LinkedIn, email, dan WhatsApp untuk mendukung pipeline penjualan B2B.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h4>CRM & Sales Pipeline</h4>
+                        <p>Mengelola dan memvalidasi 300+ data leads/CRM untuk meningkatkan efektivitas follow-up dan kesiapan tim sales.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h4>Marketing Campaign</h4>
+                        <p>Berhasil menjalankan 7+ campaign marketing serta menghasilkan 60% ketertarikan klien potensial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       4. SKILLS
+       ========================================================================== -->
+    <section id="skills" class="reveal">
+        <h2 class="section-title">Keahlian Utama</h2>
+        <div class="skills-grid">
+            <!-- SKILL 1 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>B2B Outreach & Lead Gen</h3>
+                <p>Membantu membangun relasi dan prospek potensial melalui strategi outreach dan follow-up terstruktur.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">LinkedIn outreach</span>
+                    <span class="skill-tag">Lead generation</span>
+                    <span class="skill-tag">Prospect follow-up</span>
+                    <span class="skill-tag">CRM management</span>
+                </div>
+            </div>
+            <!-- SKILL 2 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                </div>
+                <h3>Digital Marketing Support</h3>
+                <p>Mendukung aktivitas digital marketing untuk meningkatkan awareness, engagement, dan branding perusahaan.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Social media campaign</span>
+                    <span class="skill-tag">Content planning</span>
+                    <span class="skill-tag">Copywriting</span>
+                </div>
+            </div>
+            <!-- SKILL 3 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <h3>Sales & CRM Admin</h3>
+                <p>Membantu pengelolaan data leads dan administrasi sales agar proses penjualan lebih rapi dan efektif.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">CRM update</span>
+                    <span class="skill-tag">Proposal/QT</span>
+                    <span class="skill-tag">Reporting</span>
+                    <span class="skill-tag">Sales Pipeline</span>
+                </div>
+            </div>
+            <!-- SKILL 4 (Soft Skill) -->
+            <div class="skill-card soft-skills">
+                <h3 style="margin-bottom: 20px;">Kombinasi Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Team Collaboration</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Negotiation</span>
+                    <span class="skill-tag">Time Management</span>
+                    <span class="skill-tag">Design Thinking</span>
+                    <span class="skill-tag">Emotional Resilience</span>
+                    <span class="skill-tag">Adaptability</span>
+                </div>
+            </div>
+        </div>
+        <div class="skills-cta">
+            <p>Membutuhkan kolaborator untuk mengoptimalkan proses lead generation atau manajemen event di perusahaan Anda? Yuk, diskusikan project Anda bersama saya.</p>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       5. ORGANISASI
+       ========================================================================== -->
+    <section id="organisasi" class="reveal">
+        <h2 class="section-title">Pengalaman Organisasi</h2>
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterData('org', 'all', this)">Semua Kategori</button>
+            <button class="filter-btn" onclick="filterData('org', 'Transport Volunteer', this)">Transport Volunteer</button>
+            <button class="filter-btn" onclick="filterData('org', 'Ketua', this)">Ketua</button>
+        </div>
+        <div class="data-grid" id="org-grid">
+            <!-- ORG 1 -->
+            <div class="data-card" data-category="Transport Volunteer">
+                <div class="card-thumb-wrapper">
+                    <img src="https://placehold.co/600x400" alt="PEPARNAS XVII Solo" class="card-thumb" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-date">September 2024</span>
+                        <span class="badge">Transport Volunteer</span>
+                    </div>
+                    <h3 class="card-title">PEPARNAS XVII Solo</h3>
+                    <p class="card-desc">Mengoordinasikan dan merancang manajemen distribusi transportasi massal untuk ratusan atlet difabel dan official tanpa hambatan operasional selama event nasional.</p>
+                    <div class="card-action">
+                        <button class="btn-text" onclick="openModal('PEPARNAS XVII Solo', 'Transport Volunteer', ['Mengoordinasikan transportasi untuk 200+ atlet dan 100+ sepeda dengan tingkat ketepatan waktu tinggi dan tanpa keluhan peserta.', 'Berkolaborasi dengan dinas, driver, dan pihak hotel untuk distribusi transportasi berjalan lancar di berbagai venue pertandingan.', 'Mengimplementasikan sistem penjadwalan transportasi yang membantu mengurangi keterlambatan selama event berlangsung.'])">Lihat Detail →</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ORG 2 -->
+            <div class="data-card" data-category="Ketua">
+                <div class="card-thumb-wrapper">
+                    <img src="https://placehold.co/600x400" alt="KSM Bank Indonesia Corner UPNYK" class="card-thumb" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-date">Feb 2022 - Apr 2023</span>
+                        <span class="badge">Ketua</span>
+                    </div>
+                    <h3 class="card-title">KSM Bank Indonesia Corner UPNYK</h3>
+                    <p class="card-desc">Memimpin restrukturisasi dan akselerasi program kerja lintas divisi, serta memperluas jangkauan literasi finansial bersama lembaga eksternal strategis.</p>
+                    <div class="card-action">
+                        <button class="btn-text" onclick="openModal('KSM Bank Indonesia Corner UPNYK', 'Ketua', ['Memimpin 35+ anggota organisasi dan mengoordinasikan 20+ program kerja lintas divisi selama masa kepengurusan.', 'Meningkatkan jumlah pendaftar anggota sebesar 20% dan partisipasi rapat sebesar 30% melalui evaluasi dan koordinasi internal.', 'Berkolaborasi dengan Bank Indonesia dan OJK dalam penyelenggaraan kegiatan literasi keuangan untuk 100+ peserta.'])">Lihat Detail →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       6. PENGALAMAN KERJA
+       ========================================================================== -->
+    <section id="pengalaman" class="reveal">
+        <h2 class="section-title">Pengalaman Kerja</h2>
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterData('exp', 'all', this)">Semua Peran</button>
+            <button class="filter-btn" onclick="filterData('exp', 'Marketing Executive', this)">Marketing Executive</button>
+            <button class="filter-btn" onclick="filterData('exp', 'Customer Service Advisor', this)">Customer Service Advisor</button>
+            <button class="filter-btn" onclick="filterData('exp', 'Marketing Communication & Sales', this)">Marcom & Sales</button>
+        </div>
+        <div class="data-grid" id="exp-grid">
+            <!-- EXP 1 -->
+            <div class="data-card" data-category="Marketing Executive">
+                <div class="card-thumb-wrapper">
+                    <img src="https://placehold.co/600x400" alt="PT Javan Cipta Solusi" class="card-thumb" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-date">Okt 2025 - Apr 2026</span>
+                        <span class="badge">Marketing Executive</span>
+                    </div>
+                    <h3 class="card-title">PT Javan Cipta Solusi</h3>
+                    <p class="card-desc">Bertanggung jawab penuh atas perluasan pasar korporasi dengan melakukan penetrasi lead generation B2B secara masif dan terjadwal setiap harinya.</p>
+                    <div class="card-action">
+                        <button class="btn-text" onclick="openModal('PT Javan Cipta Solusi', 'Marketing Executive', ['Menjalankan 120+ outreach prospek per bulan melalui LinkedIn, email, dan WhatsApp.', 'Mengelola dan memvalidasi 300+ data leads/ICP untuk kebutuhan pipeline B2B.', 'Berkontribusi pada 20–25 meeting bulanan bersama client dan internal sales.', 'Menyusun 15+ dokumen sales support per bulan untuk membantu proses closing.'])">Lihat Detail →</button>
+                    </div>
+                </div>
+            </div>
+            <!-- EXP 2 -->
+            <div class="data-card" data-category="Customer Service Advisor">
+                <div class="card-thumb-wrapper">
+                    <img src="https://placehold.co/600x400" alt="PT Eduprima Akselera Cendekia" class="card-thumb" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-date">Sep 2024 - Feb 2025</span>
+                        <span class="badge">Customer Service Advisor</span>
+                    </div>
+                    <h3 class="card-title">PT Eduprima Akselera Cendekia</h3>
+                    <p class="card-desc">Memastikan kepuasan pengguna layanan tinggi lewat penanganan operasional harian yang cepat, tanggap, dan terukur menggunakan tools CRM modern.</p>
+                    <div class="card-action">
+                        <button class="btn-text" onclick="openModal('PT Eduprima Akselera Cendekia', 'Customer Service Advisor', ['Menangani 30+ customer inquiries per hari melalui CRM dan media sosial.', 'Melakukan 10+ follow-up prospek harian untuk meningkatkan engagement pelanggan.', 'Menggunakan CRM dan Trello untuk monitoring customer journey dan conversion progress.'])">Lihat Detail →</button>
+                    </div>
+                </div>
+            </div>
+            <!-- EXP 3 -->
+            <div class="data-card" data-category="Marketing Communication & Sales">
+                <div class="card-thumb-wrapper">
+                    <img src="https://placehold.co/600x400" alt="PT Maleo Edukasi Teknologi" class="card-thumb" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-date">Feb 2024 - Jul 2024</span>
+                        <span class="badge">Marketing Communication & Sales</span>
+                    </div>
+                    <h3 class="card-title">PT Maleo Edukasi Teknologi</h3>
+                    <p class="card-desc">Berfokus pada strategi perluasan user acquisition lewat aktivasi pemasaran langsung ke institusi pendidikan potensial dan pembuatan konten kreatif.</p>
+                    <div class="card-action">
+                        <button class="btn-text" onclick="openModal('PT Maleo Edukasi Teknologi', 'Marketing Communication & Sales', ['Mengunjungi 20+ sekolah potensial dan menghasilkan 60% prospek tertarik.', 'Menjalankan 7+ campaign marketing dan event activation.', 'Memvalidasi 100+ data CRM untuk meningkatkan efektivitas follow-up sales.', 'Menjadi talent pada 5+ video promosi Instagram perusahaan.'])">Lihat Detail →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       7. REKOMENDASI
+       ========================================================================== -->
+    <section id="rekomendasi" class="reveal">
+        <h2 class="section-title">Rekomendasi Magang & Profesional</h2>
+        <div class="rec-grid">
+            <!-- REK 1 -->
+            <div class="rec-card">
+                <div>
+                    <div class="rec-stars">★★★★★</div>
+                    <p class="rec-quote">"Kinerja yang ditunjukkan dalam memenuhi indikator kinerja sangat memuaskan. Penghasilan ≥30 leads per bulan menunjukkan kemampuan dalam menghasilkan prospek yang berpotensi, yang sangat mendukung pertumbuhan bisnis. Pencapaian nilai Signed Contract Pelanggan Baru ≥ Rp 16.800.000 per bulan mencerminkan kemampuan yang baik dalam menutup transaksi yang menghasilkan pendapatan signifikan."</p>
+                </div>
+                <div class="rec-profile">
+                    <img src="https://placehold.co/60x60" alt="Ahmad Fakhurozi" class="rec-avatar" loading="lazy">
+                    <div class="rec-info">
+                        <h4>Ahmad Fakhurozi</h4>
+                        <p>Mentor Marketing, PT Javan Cipta Solusi</p>
+                    </div>
+                </div>
+            </div>
+            <!-- REK 2 -->
+            <div class="rec-card">
+                <div>
+                    <div class="rec-stars">★★★★★</div>
+                    <p class="rec-quote">"Nur Safrian sudah menjalankan tugas dengan baik, namun perlu meningkatkan beberapa area improvement spesifik agar pekerjaan ke depan jauh lebih efisien dan minim revisi. Dengan perbaikan pada aspek manajemen waktu tersebut, performa kinerjanya akan semakin stabil dan optimal."</p>
+                </div>
+                <div class="rec-profile">
+                    <img src="https://placehold.co/60x60" alt="Putri Yanuria" class="rec-avatar" loading="lazy">
+                    <div class="rec-info">
+                        <h4>Putri Yanuria</h4>
+                        <p>Mentor Marketing, PT Javan Cipta Solusi</p>
+                    </div>
+                </div>
+            </div>
+            <!-- REK 3 -->
+            <div class="rec-card">
+                <div>
+                    <div class="rec-stars">★★★★★</div>
+                    <p class="rec-quote">"Nur Safrian Ahmad telah menyelesaikan program magang hubungan bisnis (hub) dengan baik. Kontribusi yang diberikan selama berada di tim kami dinilai sangat bagus dan memuaskan bagi akselerasi pertumbuhan perusahaan."</p>
+                </div>
+                <div class="rec-profile">
+                    <img src="https://placehold.co/60x60" alt="Raden Nanda Teguh" class="rec-avatar" loading="lazy">
+                    <div class="rec-info">
+                        <h4>Raden Nanda Teguh</h4>
+                        <p>Manager Marketing, PT Javan Cipta Solusi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       8. KONTAK
+       ========================================================================== -->
+    <section id="kontak" class="reveal">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="contact-box">
+            <div class="contact-info-list">
+                <div class="contact-item">
+                    <div class="contact-icon-frame">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <h5>Email Resmi</h5>
+                        <p>nursafrianahmad@email.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon-frame">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <h5>WhatsApp Direct</h5>
+                        <p>+62 895-3373-22561</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon-frame">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="contact-text">
+                        <h5>Domisili Operasional</h5>
+                        <p>Purbalingga, Jawa Tengah</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-action-zone">
+                <p>Ingin melihat berkas riwayat hidup saya secara lebih formal dan terstruktur? Silakan klik tombol di bawah untuk melihat salinan CV digital.</p>
+                <!-- Menghilangkan karakter '#' di awal link asli sesuai best practice URL -->
+                <a href="https://drive.google.com/file/d/1kCDXQUcHaJJ2M9mbsD8Vi7MbiOc1K8Ve/view?usp=sharing" target="_blank" class="btn btn-secondary" style="margin-right: 8px; margin-bottom: 12px;">Buka CV Digital</a>
+                <a href="https://wa.me/62895337322561" target="_blank" class="btn btn-primary">Chat via WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h4>Nur Safrian Ahmad</h4>
+                <p>Marketing & Business Development Enthusiast | B2B Sales | Digital Marketing | Event Activation</p>
+            </div>
+            <div class="footer-links">
+                <h5>Akses Cepat</h5>
+                <ul>
+                    <li><a href="#tentang">Tentang Saya</a></li>
+                    <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#organisasi">Organisasi</a></li>
+                    <li><a href="#pengalaman">Pengalaman</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h5>Saluran Profesional</h5>
+                <div class="social-icons">
+                    <a href="https://instagram.com/nursafrianahmad" target="_blank" class="social-btn" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/nursafrianahmad" target="_blank" class="social-btn" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nur Safrian Ahmad. All rights reserved.</p>
+            <p>Didesain secara profesional & bersih.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       MODAL ELEMENT FRAMEWORK
+       ========================================================================== -->
+    <div class="modal" id="detail-modal" onclick="closeModalOutside(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <span class="badge" id="modal-badge">Kategori</span>
+            <h3 id="modal-title" class="card-title" style="font-size: 1.75rem; margin-top: 12px;">Judul Detail</h3>
+            <ul class="modal-points" id="modal-points-list">
+                <!-- Diisi via JS -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+    <script>
+        /* --- MANAJEMEN NAVBAR & HAMBURGER --- */
+        const navbar = document.getElementById('navbar');
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenuList = document.getElementById('nav-menu-list');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            navMenuList.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                navMenuList.classList.remove('active');
+            });
+        });
+
+        /* --- ACTIVE STATE AUTO UPDATE (INTERSECTION OBSERVER) --- */
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            root: null,
+            threshold: 0.2,
+            rootMargin: "-10% 0px -70% 0px"
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        /* --- INTERSECTION OBSERVER UNTUK ANIMASI REVEAL ON SCROLL --- */
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target); // Animasi sekali jalan
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        /* --- FILTER SISTEM (ORGANISASI & PENGALAMAN) --- */
+        function filterData(gridId, category, buttonElement) {
+            // Update active state class button filter
+            const filterButtons = buttonElement.parentElement.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            // Filter item logic
+            const cards = document.querySelectorAll(`#${gridId}-grid .data-card`);
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        }
+
+        /* --- INTERAKTIF MODAL DETAIL POPUP --- */
+        const modal = document.getElementById('detail-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBadge = document.getElementById('modal-badge');
+        const modalPointsList = document.getElementById('modal-points-list');
+
+        function openModal(title, badgeText, pointsArray) {
+            modalTitle.textContent = title;
+            modalBadge.textContent = badgeText;
+            
+            // Bersihkan data poin list sebelumnya
+            modalPointsList.innerHTML = '';
+            
+            // Append elemen poin baru
+            pointsArray.forEach(point => {
+                const li = document.createElement('li');
+                li.textContent = point;
+                modalPointsList.appendChild(li);
+            });
+
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Lock scrolling utama saat modal aktif
+        }
+
+        function closeModal() {
+            modal.classList.remove('open');
+            document.body.style.overflow = ''; // Unlock scrolling
+        }
+
+        function closeModalOutside(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
