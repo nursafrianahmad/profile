@@ -2,16 +2,16 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Nur Safrian Ahmad | Business Development Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portofolio Nur Safrian Ahmad</title>
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================== ROOT THEME ================== */
+/* ===GLOBAL=== */
 :root{
   --bg:#020B1A;
   --bg2:#051A3A;
@@ -19,116 +19,131 @@
   --accent:#00BCD4;
   --soft:#80DEEA;
   --text:#EAF6FF;
-  --muted:#9CC3D5;
-  --card: rgba(255,255,255,0.06);
-  --glass: rgba(255,255,255,0.08);
-  --border: rgba(0,188,212,0.25);
+  --muted:#9bb4c7;
+  --glass: rgba(255,255,255,0.06);
+  --border: rgba(128,222,234,0.25);
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  background: radial-gradient(1200px 800px at 20% 10%, #0d47a133, transparent),
-              radial-gradient(900px 600px at 80% 30%, #00bcd422, transparent),
-              linear-gradient(180deg,var(--bg),var(--bg2));
+  font-family:Inter,sans-serif;
+  background: radial-gradient(1200px 600px at 20% 0%, #0D47A122, transparent),
+              radial-gradient(900px 500px at 80% 10%, #00BCD422, transparent),
+              var(--bg);
   color:var(--text);
   overflow-x:hidden;
 }
 
-/* scrollbar */
-::-webkit-scrollbar{width:10px}
-::-webkit-scrollbar-thumb{background:var(--accent);border-radius:10px}
 ::selection{background:var(--accent);color:#001018}
 
-/* ================== NAVBAR ================== */
-.nav{
-  position:fixed;top:0;left:0;width:100%;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:16px 8%;
-  backdrop-filter: blur(10px);
-  background:rgba(2,11,26,0.4);
+a{text-decoration:none;color:inherit}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:10px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+
+/* ===NAVBAR=== */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:999;
+  backdrop-filter:blur(12px);
+  background:rgba(2,11,26,0.6);
   border-bottom:1px solid var(--border);
-  z-index:1000;
 }
-.nav .logo{
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+}
+.logo{
+  font-family:"Space Grotesk";
   font-weight:700;
-  letter-spacing:1px;
+  color:var(--soft);
 }
-.nav ul{
-  display:flex;gap:24px;
-  list-style:none;
+.menu{
+  display:flex;
+  gap:20px;
 }
-.nav a{
-  text-decoration:none;
-  color:var(--text);
+.menu a{
   font-size:14px;
-  opacity:0.8;
+  color:var(--muted);
   transition:0.3s;
 }
-.nav a:hover,.nav a.active{color:var(--accent);opacity:1}
+.menu a:hover,.menu a.active{color:var(--accent)}
 
 .hamburger{
   display:none;
   flex-direction:column;
-  gap:4px;
+  gap:5px;
   cursor:pointer;
 }
 .hamburger span{
-  width:25px;height:2px;background:var(--text);
+  width:25px;height:2px;background:var(--soft);
   transition:0.3s;
 }
 
-/* ================== HERO ================== */
+/* ===HERO=== */
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding:120px 8% 60px;
-  position:relative;
+  padding:120px 20px 60px;
+  max-width:1200px;
+  margin:auto;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:40px;
 }
 .hero h1{
-  font-family:"Playfair Display",serif;
-  font-size:52px;
+  font-family:"Space Grotesk";
+  font-size:48px;
   line-height:1.1;
 }
 .hero p{
-  margin-top:16px;
-  max-width:600px;
+  margin-top:15px;
   color:var(--muted);
 }
-.hero .cta{
-  margin-top:28px;
+.cta{
+  margin-top:25px;
   display:flex;
-  gap:16px;
+  gap:15px;
 }
 .btn{
-  padding:12px 18px;
+  padding:10px 16px;
   border-radius:10px;
   border:1px solid var(--border);
+  background:var(--glass);
+  color:var(--text);
   cursor:pointer;
   transition:0.3s;
-  text-decoration:none;
-  color:var(--text);
 }
 .btn.primary{
   background:linear-gradient(135deg,var(--primary),var(--accent));
+  border:none;
 }
-.btn:hover{transform:translateY(-3px)}
+.btn:hover{transform:translateY(-2px)}
 
-/* ================== ABOUT ================== */
-section{padding:80px 8%}
+/* ===ABOUT=== */
+section{padding:80px 20px;max-width:1200px;margin:auto}
 .section-title{
-  font-size:26px;
-  margin-bottom:30px;
-  font-weight:700;
+  font-family:"Space Grotesk";
+  font-size:28px;
+  margin-bottom:20px;
 }
-.about{
+.about-grid{
   display:grid;
-  grid-template-columns:1fr 1.5fr;
+  grid-template-columns:1fr 1fr;
   gap:40px;
 }
-.about img{
+.profile-img{
   width:100%;
   border-radius:20px;
   border:1px solid var(--border);
@@ -136,157 +151,148 @@ section{padding:80px 8%}
 .cards{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:15px;
   margin-top:20px;
 }
 .card{
-  background:var(--card);
-  padding:16px;
-  border-radius:14px;
+  background:var(--glass);
+  padding:15px;
+  border-radius:15px;
   border:1px solid var(--border);
 }
 
-/* ================== SKILLS ================== */
+/* ===SKILLS=== */
 .skills-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:18px;
+  gap:20px;
 }
-.skill{
-  padding:18px;
-  background:var(--card);
+.skill-card{
+  padding:20px;
+  border-radius:15px;
+  background:var(--glass);
   border:1px solid var(--border);
-  border-radius:16px;
   transition:0.3s;
 }
-.skill:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 20px rgba(0,188,212,0.2);
+.skill-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--accent);
 }
 
-/* ================== GRID ================== */
-.grid{
+/* ===GRID SECTIONS=== */
+.grid-3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:20px;
 }
-.item{
-  background:var(--card);
-  border-radius:16px;
+.item-card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:15px;
   overflow:hidden;
-  border:1px solid var(--border);
+  transition:0.3s;
 }
-.item img{width:100%}
-.item-content{padding:14px}
-
-/* badges */
+.item-card:hover{transform:translateY(-5px)}
+.item-card img{width:100%;height:160px;object-fit:cover}
+.item-content{padding:15px}
 .badge{
-  display:inline-block;
   font-size:12px;
-  padding:4px 10px;
-  border-radius:20px;
-  background:rgba(0,188,212,0.15);
-  color:var(--soft);
+  color:var(--accent);
 }
 
-/* ================== RECOMMENDATION ================== */
-.reco{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-.quote{
-  font-size:13px;
-  color:var(--muted);
-  margin-top:8px;
-}
-
-/* ================== CONTACT ================== */
-.contact-box{
-  background:var(--card);
-  padding:20px;
-  border-radius:16px;
+/* ===REKOMENDASI=== */
+.rek-card{
+  padding:15px;
+  border-radius:15px;
+  background:var(--glass);
   border:1px solid var(--border);
 }
+.avatar{
+  width:40px;height:40px;border-radius:50%;
+}
 
-/* footer */
+/* ===CONTACT=== */
+.contact-box{
+  background:var(--glass);
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:15px;
+}
+
+/* ===FOOTER=== */
 footer{
+  padding:40px 20px;
   text-align:center;
-  padding:40px;
   border-top:1px solid var(--border);
   color:var(--muted);
 }
 
-/* ================== MOBILE ================== */
+/* responsive */
 @media(max-width:900px){
-  .about{grid-template-columns:1fr}
-  .grid,.skills-grid,.reco{grid-template-columns:1fr}
-  .nav ul{
-    position:absolute;
-    top:60px;
-    right:8%;
-    background:var(--bg2);
-    flex-direction:column;
-    padding:16px;
+  .hero-grid,.about-grid,.skills-grid,.grid-3{
+    grid-template-columns:1fr;
+  }
+  .menu{
     display:none;
-    border:1px solid var(--border);
+    position:absolute;
+    top:60px;right:20px;
+    flex-direction:column;
+    background:var(--bg2);
+    padding:15px;
+    border-radius:10px;
   }
   .hamburger{display:flex}
 }
-.show{display:flex!important}
 </style>
 </head>
 
 <body>
 
 <!-- ================= NAVBAR ================= -->
-<nav class="nav">
-  <div class="logo">Nur Safrian Ahmad</div>
-  <ul id="menu">
-    <li><a href="#about">Tentang</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#org">Organisasi</a></li>
-    <li><a href="#exp">Pengalaman</a></li>
-    <li><a href="#contact">Kontak</a></li>
-  </ul>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+<nav>
+  <div class="nav-container">
+    <div class="logo">Nur Safrian Ahmad</div>
+    <div class="menu" id="menu">
+      <a href="#about">Tentang</a>
+      <a href="#skills">Skills</a>
+      <a href="#org">Organisasi</a>
+      <a href="#exp">Pengalaman</a>
+      <a href="#contact">Kontak</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
 <!-- ================= HERO ================= -->
-<header class="hero">
-  <div>
-    <h1>Driving Growth Through Data, Outreach & Strategic B2B Execution</h1>
-    <p>Lulusan Manajemen dengan pengalaman di sales support, CRM management, dan marketing B2B berbasis KPI. Terbiasa mengelola 300+ leads serta 120+ outreach per bulan untuk pipeline penjualan.</p>
-    <div class="cta">
-      <a class="btn primary" href="#skills">Lihat Skills</a>
-      <a class="btn" href="#contact">Hubungi Saya</a>
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <h1>Portofolio Sales Marketing Nur Safrian Ahmad</h1>
+      <p>Lulusan Manajemen dengan pengalaman di sales support, CRM management, dan marketing B2B yang berfokus pada pipeline growth dan eksekusi campaign berbasis KPI.</p>
+      <div class="cta">
+        <button class="btn primary" onclick="document.querySelector('#skills').scrollIntoView()">Lihat Skills</button>
+        <button class="btn" onclick="document.querySelector('#contact').scrollIntoView()">Hubungi Saya</button>
+      </div>
     </div>
   </div>
-</header>
+</section>
 
 <!-- ================= ABOUT ================= -->
 <section id="about">
   <div class="section-title">Tentang Saya</div>
-  <div class="about">
-    <img src="https://placehold.co/400x400" alt="profile">
+  <div class="about-grid">
     <div>
-      <p><b>Tagline:</b> Marketing & Business Development Enthusiast | B2B Sales | Digital Marketing | Event Activation</p>
-      <p style="margin-top:10px;color:var(--muted)">
-        Lulusan Manajemen dengan pengalaman di sales support, CRM, dan marketing. Berpengalaman mengelola pipeline B2B berbasis KPI serta koordinasi tim dan stakeholder.
-      </p>
+      <img class="profile-img" src="https://placehold.co/400x400" alt="Profile" loading="lazy">
+    </div>
+    <div>
+      <p>Lulusan Manajemen dengan pengalaman di bidang sales support, administrasi, dan marketing. Terbukti mampu mengelola 300+ data leads/CRM dan 120+ outreach bisnis per bulan.</p>
 
       <div class="cards">
-        <div class="card">
-          <b>120+</b><br/>Outreach/Bulan
-        </div>
-        <div class="card">
-          <b>300+</b><br/>CRM Leads
-        </div>
-        <div class="card">
-          <b>7+</b><br/>Campaign
-        </div>
+        <div class="card">120+ Outreach / bulan</div>
+        <div class="card">300+ CRM Leads</div>
+        <div class="card">7+ Campaign Marketing</div>
       </div>
     </div>
   </div>
@@ -295,47 +301,51 @@ footer{
 <!-- ================= SKILLS ================= -->
 <section id="skills">
   <div class="section-title">Skills</div>
-
   <div class="skills-grid">
-    <div class="skill">
+
+    <div class="skill-card">
       <h3>B2B Outreach & Lead Generation</h3>
-      <p>Membangun prospek melalui LinkedIn, email, WhatsApp.</p>
+      <p>LinkedIn outreach, lead generation, CRM management</p>
     </div>
-    <div class="skill">
+
+    <div class="skill-card">
       <h3>Digital Marketing Support</h3>
-      <p>Campaign sosial media, content planning, copywriting.</p>
+      <p>Content planning, social media campaign, copywriting</p>
     </div>
-    <div class="skill">
-      <h3>Sales & CRM Administration</h3>
-      <p>CRM update, reporting, proposal, pipeline management.</p>
+
+    <div class="skill-card">
+      <h3>Sales Support</h3>
+      <p>CRM update, proposal, reporting, pipeline tracking</p>
     </div>
-    <div class="skill">
-      <h3>Soft Skills</h3>
-      <p>Communication, negotiation, adaptability, teamwork.</p>
+
+    <div class="skill-card">
+      <h3>Soft Skill</h3>
+      <p>Communication, teamwork, negotiation, adaptability</p>
     </div>
+
   </div>
 </section>
 
 <!-- ================= ORGANISASI ================= -->
 <section id="org">
   <div class="section-title">Organisasi</div>
-  <div class="grid">
+  <div class="grid-3">
 
-    <div class="item">
-      <img src="https://lh3.googleusercontent.com/d/1Y2lVGZ6Lbbv-kgUeeTMn8Ke0UxoB60ow">
+    <div class="item-card">
+      <img src="https://lh3.googleusercontent.com/d/1Y2lVGZ6Lbbv-kgUeeTMn8Ke0UxoB60ow" />
       <div class="item-content">
-        <span class="badge">Transport Volunteer</span>
-        <h4>PEPARNAS XVII Solo</h4>
-        <p>Mengoordinasikan transportasi 200+ atlet.</p>
+        <div class="badge">Transport Volunteer</div>
+        <h3>PEPARNAS XVII Solo</h3>
+        <p>Mengoordinasikan transportasi atlet dan implementasi sistem jadwal event.</p>
       </div>
     </div>
 
-    <div class="item">
-      <img src="https://lh3.googleusercontent.com/d/1A2xaVu5-WsSU1spvrgqz6MQ4HDBz6a_U">
+    <div class="item-card">
+      <img src="https://lh3.googleusercontent.com/d/1A2xaVu5-WsSU1spvrgqz6MQ4HDBz6a_U" />
       <div class="item-content">
-        <span class="badge">Ketua</span>
-        <h4>KSM Bank Indonesia Corner</h4>
-        <p>Memimpin 35+ anggota organisasi.</p>
+        <div class="badge">Ketua</div>
+        <h3>KSM BI Corner UPNYK</h3>
+        <p>Memimpin 35+ anggota organisasi dan program kerja lintas divisi.</p>
       </div>
     </div>
 
@@ -345,32 +355,29 @@ footer{
 <!-- ================= PENGALAMAN ================= -->
 <section id="exp">
   <div class="section-title">Pengalaman</div>
-  <div class="grid">
+  <div class="grid-3">
 
-    <div class="item">
+    <div class="item-card">
       <img src="https://lh3.googleusercontent.com/d/1HLeAyVLGtDAuZn-Kw40uK4d2Sab-SK9x">
       <div class="item-content">
-        <span class="badge">Marketing Executive</span>
-        <h4>PT Javan Cipta Solusi</h4>
-        <p>Outreach 120+ prospek/bulan.</p>
+        <div class="badge">Marketing Executive</div>
+        <h3>PT Javan Cipta Solusi</h3>
       </div>
     </div>
 
-    <div class="item">
+    <div class="item-card">
       <img src="https://lh3.googleusercontent.com/d/1Eya_yDAWwJG_mtIUCTzCjylC_-L8FWS-">
       <div class="item-content">
-        <span class="badge">Customer Service</span>
-        <h4>PT Eduprima</h4>
-        <p>30+ inquiries per hari.</p>
+        <div class="badge">Customer Service</div>
+        <h3>PT Eduprima Akselera</h3>
       </div>
     </div>
 
-    <div class="item">
+    <div class="item-card">
       <img src="https://lh3.googleusercontent.com/d/14XMiWMslUyCnm-zmGjycFB02t7EE62O2">
       <div class="item-content">
-        <span class="badge">Marketing & Sales</span>
-        <h4>PT Maleo Edukasi</h4>
-        <p>7+ campaign marketing.</p>
+        <div class="badge">Marketing & Sales</div>
+        <h3>PT Maleo Edukasi</h3>
       </div>
     </div>
 
@@ -380,34 +387,24 @@ footer{
 <!-- ================= REKOMENDASI ================= -->
 <section>
   <div class="section-title">Rekomendasi</div>
+  <div class="grid-3">
 
-  <div class="reco">
-
-    <div class="item">
-      <div class="item-content">
-        <img src="https://lh3.googleusercontent.com/d/1-hu00Swi37WdD7kD85jdqw79wWK0pc86" width="60">
-        <h4>Ahmad Fakhurozi</h4>
-        <span class="badge">Mentor</span>
-        <p class="quote">Kinerja sangat memuaskan, mampu menghasilkan ≥30 leads/bulan dan closing signifikan.</p>
-      </div>
+    <div class="rek-card">
+      <img class="avatar" src="https://lh3.googleusercontent.com/d/1-hu00Swi37WdD7kD85jdqw79wWK0pc86">
+      <h4>Ahmad Fakhurozi</h4>
+      <p>“Kinerja sangat memuaskan. ≥30 leads/bulan dan signed contract ≥ Rp16.800.000.”</p>
     </div>
 
-    <div class="item">
-      <div class="item-content">
-        <img src="https://lh3.googleusercontent.com/d/1FWFWyyffCNxQPmaGh2-IZVgAWSJ006_t" width="60">
-        <h4>Putri Yanuria</h4>
-        <span class="badge">Business Development</span>
-        <p class="quote">Perlu peningkatan efisiensi agar performa lebih stabil.</p>
-      </div>
+    <div class="rek-card">
+      <img class="avatar" src="https://lh3.googleusercontent.com/d/1FWFWyyffCNxQPmaGh2-IZVgAWSJ006_t">
+      <h4>Putri Yanuria</h4>
+      <p>“Perlu improvement agar lebih efisien dan minim revisi.”</p>
     </div>
 
-    <div class="item">
-      <div class="item-content">
-        <img src="https://lh3.googleusercontent.com/d/1aXD7BcdbZIUxMHZABeNJhS4_F_7i0uA4" width="60">
-        <h4>Raden Nanda</h4>
-        <span class="badge">Manager</span>
-        <p class="quote">Kontribusi magang sangat baik dan memuaskan.</p>
-      </div>
+    <div class="rek-card">
+      <img class="avatar" src="https://lh3.googleusercontent.com/d/1-hu00Swi37WdD7kD85jdqw79wWK0pc86">
+      <h4>Raden Nanda Teguh</h4>
+      <p>“Kontribusi sangat bagus dan memuaskan untuk perusahaan.”</p>
     </div>
 
   </div>
@@ -416,48 +413,47 @@ footer{
 <!-- ================= CONTACT ================= -->
 <section id="contact">
   <div class="section-title">Kontak</div>
-
   <div class="contact-box">
-    <p>Email: <b>nursafrianahmad@email.com</b></p>
-    <p>WhatsApp: <b>+62895337322561</b></p>
+    <p>Email: nursafrianahmad@email.com</p>
+    <p>WhatsApp: +62895337322561</p>
     <p>Kota: Purbalingga</p>
 
-    <a class="btn primary" href="https://wa.me/62895337322561" target="_blank">Chat via WhatsApp</a>
+    <div class="cta">
+      <a class="btn primary" href="https://wa.me/62895337322561">Chat via WhatsApp</a>
+      <a class="btn" href="https://drive.google.com/file/d/1kCDXQUcHaJJ2M9mbsD8Vi7MbiOc1K8Ve/view">Download CV</a>
+    </div>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <p><b>Nur Safrian Ahmad</b> — Business Development Enthusiast</p>
-  <p style="margin-top:10px">
-    <a href="#about">Tentang</a> | <a href="#skills">Skills</a> | <a href="#org">Organisasi</a>
-  </p>
-  <p style="margin-top:10px">Instagram: nursafrianahmad | LinkedIn: nursafrianahmad</p>
-  <p style="margin-top:10px">© 2026 All rights reserved.</p>
+  <p><b>Nur Safrian Ahmad</b> — Marketing & Business Development Enthusiast</p>
+  <p>Instagram: @nursafrianahmad | LinkedIn: nursafrianahmad</p>
+  <p>© 2026 All rights reserved</p>
 </footer>
 
 <script>
-// ================= MOBILE MENU =================
 function toggleMenu(){
-  document.getElementById("menu").classList.toggle("show");
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// ================= ACTIVE NAV =================
-const links = document.querySelectorAll(".nav a");
-const sections = document.querySelectorAll("section, header");
+// active nav
+const links = document.querySelectorAll('nav a');
+const sections = document.querySelectorAll('section');
 
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
-      links.forEach(l=>l.classList.remove("active"));
+      links.forEach(l=>l.classList.remove('active'));
       const id = entry.target.id;
-      const active = document.querySelector(`.nav a[href="#${id}"]`);
-      if(active) active.classList.add("active");
+      const active = document.querySelector(`nav a[href="#${id}"]`);
+      if(active) active.classList.add('active');
     }
   });
 },{threshold:0.4});
 
-sections.forEach(s=>observer.observe(s));
+sections.forEach(sec=>observer.observe(sec));
 </script>
 
 </body>
